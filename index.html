@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<div id="demo">
+  <h1>查詢使用者在Github上的Repo</h1>
+  帳號：<input type="text" v-model='account'>
+  <ul>
+    <li v-for="repo in repos">
+      專案名稱：<a :href="repo.html_url" target="_blank" class="commit">{{repo.name}}</a>
+      <br>
+      更新時間 <span class="date">{{ repo.updated_at  }}</span>
+    </li>
+  </ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+<script src="lib.js"></script>
+</div>
+</body>
+</html>
