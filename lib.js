@@ -15,13 +15,22 @@ var demo = new Vue({
   },
   methods: {
     fetchData: function () {
-      var xhr = new XMLHttpRequest()
-      var self = this
-      xhr.open('GET', apiURL + self.account + '/repos')
-      xhr.onload = function () {
-        self.repos = JSON.parse(xhr.responseText)
-      }
-      xhr.send()
+    //   var xhr = new XMLHttpRequest()
+       var self = this
+    //   xhr.open('GET', apiURL + self.account + '/repos')
+    //   xhr.onload = function () {
+    //     self.repos = JSON.parse(xhr.responseText)
+    //   }
+    //   xhr.send()
+    fetch(apiURL + self.account + '/repos', {method: 'GET',})
+    .then((response) => {
+        
+        return response.json()
+    })
+    .then(json => {
+        self.repos = json;
+        return json;
+    })
     }
   }
 })
